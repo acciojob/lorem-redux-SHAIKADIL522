@@ -31,11 +31,15 @@ const App = () => {
       {/* ✅ Data */}
       {data && (
         <ul>
-          <li>
-            <p className="title">Title :{data.title}</p>
-            <p className="body">Body :{data.body}</p>
-          </li>
-        </ul>
+  <li>
+    <p className="title">
+      Title :{loading ? "Loading tiltes" : data?.title}
+    </p>
+    <p className="body">
+      Body :{loading ? "Loading body" : data?.body}
+    </p>
+  </li>
+</ul>
       )}
     </div>
   );
