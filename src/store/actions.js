@@ -4,19 +4,12 @@ export const FETCH_LOREM_FAILURE = "FETCH_LOREM_FAILURE";
 
 export const fetchLorem = () => (dispatch) => {
   dispatch({ type: FETCH_LOREM_REQUEST });
-
   fetch("https://jsonplaceholder.typicode.com/posts/1")
     .then((response) => response.json())
     .then((data) => {
-      dispatch({
-        type: FETCH_LOREM_SUCCESS,
-        payload: data,
-      });
+      dispatch({ type: FETCH_LOREM_SUCCESS, payload: data });
     })
     .catch((error) => {
-      dispatch({
-        type: FETCH_LOREM_FAILURE,
-        payload: error.message,
-      });
+      dispatch({ type: FETCH_LOREM_FAILURE, payload: error.message });
     });
 };
