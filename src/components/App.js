@@ -27,20 +27,23 @@ const App = () => {
       {/* ✅ Error */}
       {error && <h4>Error: {error}</h4>}
 
-      <ul>
-        <li>
-          {/* ✅ ID must be RAW TEXT */}
-          {loading ? "Loading id" : data?.id}
+       <ul>
+  <li>
+    {loading ? "Loading id" : data?.id}
 
-          <p className="title">
-            Title :{loading ? "Loading tiltes" : data?.title}
-          </p>
+    <p className="title">
+      {loading
+        ? "Title :Loading tiltes"
+        : `Title :${data?.title}`}
+    </p>
 
-          <p className="body">
-            Body :{loading ? "Loading body" : data?.body}
-          </p>
-        </li>
-      </ul>
+    <p className="body">
+      {loading
+        ? "Body :Loading body"
+        : `Body :${data?.body}`}
+    </p>
+  </li>
+</ul>
     </div>
   );
 };
