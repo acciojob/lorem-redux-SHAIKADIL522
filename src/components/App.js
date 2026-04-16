@@ -27,26 +27,29 @@ const App = () => {
       {/* Error */}
       {error && <h4>Error: {error}</h4>}
 
-      {/* ✅ IMPORTANT: Structured Output for Cypress */}
       <ul>
         <li>
           {/* ID */}
           <p className="id">
-            {loading ? "Loading id" : data && data.id}
+            {loading ? "Loading id" : data ? data.id : ""}
           </p>
 
           {/* Title */}
           <p className="title">
             {loading
               ? "Title :Loading tiltes"
-              : data && `Title :${data.title}`}
+              : data
+              ? "Title :" + data.title
+              : ""}
           </p>
 
           {/* Body */}
           <p className="body">
             {loading
               ? "Body :Loading body"
-              : data && `Body :${data.body}`}
+              : data
+              ? "Body :" + data.body
+              : ""}
           </p>
         </li>
       </ul>
