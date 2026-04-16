@@ -28,19 +28,17 @@ const App = () => {
       {/* ✅ Error */}
       {error && <h4>Error: {error}</h4>}
 
-      {/* ✅ Data */}
-      {data && (
-        <ul>
-  <li>
-    <p className="title">
-      Title :{loading ? "Loading tiltes" : data?.title}
-    </p>
-    <p className="body">
-      Body :{loading ? "Loading body" : data?.body}
-    </p>
-  </li>
-</ul>
-      )}
+      {/* ✅ ALWAYS RENDER (IMPORTANT FOR TESTS) */}
+      <ul>
+        <li>
+          <p className="title">
+            Title :{loading ? "Loading tiltes" : data?.title}
+          </p>
+          <p className="body">
+            Body :{loading ? "Loading body" : data?.body}
+          </p>
+        </li>
+      </ul>
     </div>
   );
 };

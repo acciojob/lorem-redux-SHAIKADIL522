@@ -5,25 +5,37 @@ import {
 } from "./actions";
 
 const initialState = {
-  loading: false,
-  data: null,
-  error: null,
+  loading: true,
+  data: {},
+  error: "",
 };
 
-const loremReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_LOREM_REQUEST:
-      return { ...state, loading: true, data: null, error: null };
+      return {
+        ...state,
+        loading: true,
+        error: "",
+      };
 
     case FETCH_LOREM_SUCCESS:
-      return { ...state, loading: false, data: action.payload };
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
 
     case FETCH_LOREM_FAILURE:
-      return { ...state, loading: false, error: action.payload };
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
 
     default:
       return state;
   }
 };
 
-export default loremReducer;
+export default reducer;
