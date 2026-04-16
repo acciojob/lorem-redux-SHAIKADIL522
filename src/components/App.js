@@ -13,10 +13,9 @@ const App = () => {
 
   return (
     <div>
-      {/* ✅ Title */}
       <h1>A short Naration of Lorem Ipsum</h1>
 
-      {/* ✅ Description / Loading */}
+      {/* ✅ Loading / Description */}
       {loading ? (
         <h4>Loading...</h4>
       ) : (
@@ -28,18 +27,15 @@ const App = () => {
       {/* ✅ Error */}
       {error && <h4>Error: {error}</h4>}
 
-      {/* ✅ Data */}
       <ul>
         <li>
-          {/* ✅ ID MUST be clearly rendered */}
-          <p>ID : {loading ? "Loading id" : data?.id}</p>
+          {/* ✅ ID must be RAW TEXT */}
+          {loading ? "Loading id" : data?.id}
 
-          {/* ✅ Title */}
           <p className="title">
             Title :{loading ? "Loading tiltes" : data?.title}
           </p>
 
-          {/* ✅ Body */}
           <p className="body">
             Body :{loading ? "Loading body" : data?.body}
           </p>
