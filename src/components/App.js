@@ -13,11 +13,17 @@ const App = () => {
 
   return (
     <div>
-      {/* ✅ Intro text (MANDATORY) */}
-      <h4>A short Naration of Lorem Ipsum</h4>
+      {/* ✅ MUST BE h1 */}
+      <h1>A short Naration of Lorem Ipsum</h1>
 
-      {/* ✅ Loading */}
-      {loading && <h4>Loading...</h4>}
+      {/* ✅ Description OR Loading */}
+      {!loading ? (
+        <h4>
+          Below Contains A title and Body gotten froma random API, Please take your time to Review
+        </h4>
+      ) : (
+        <h4>Loading...</h4>
+      )}
 
       {/* ✅ Error */}
       {error && <h4>Error: {error}</h4>}
