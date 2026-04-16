@@ -55,6 +55,6 @@ const App = () => {
       </ul>
     </div>
   );
-};
+};  // The above code defines a React functional component named `App` that uses Redux for state management. It dispatches an action to fetch data from an API when the component mounts and displays the loading state, any errors, and the fetched data (ID, title, and body) in the UI.
 
 export default App;
