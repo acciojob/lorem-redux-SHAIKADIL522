@@ -8,16 +8,15 @@ const App = () => {
   const { loading, data, error } = useSelector((state) => state);
 
   useEffect(() => {
-    // delay dispatch so Cypress sees loading state
-    setTimeout(() => {
-      dispatch(fetchLorem());
-    }, 100);
+    dispatch(fetchLorem());
   }, [dispatch]);
 
   return (
     <div>
+      {/* ✅ Title */}
       <h1>A short Naration of Lorem Ipsum</h1>
 
+      {/* ✅ Description / Loading */}
       {loading ? (
         <h4>Loading...</h4>
       ) : (
@@ -26,18 +25,21 @@ const App = () => {
         </h4>
       )}
 
+      {/* ✅ Error */}
       {error && <h4>Error: {error}</h4>}
 
+      {/* ✅ Data */}
       <ul>
         <li>
-          {/* ✅ ALWAYS render ID */}
-          <p>{data ? data.id : ""}</p>
+          {/* ✅ ID MUST be clearly rendered */}
+          <p>ID : {loading ? "Loading id" : data?.id}</p>
 
-          {/* ✅ Loading text must appear FIRST */}
+          {/* ✅ Title */}
           <p className="title">
             Title :{loading ? "Loading tiltes" : data?.title}
           </p>
 
+          {/* ✅ Body */}
           <p className="body">
             Body :{loading ? "Loading body" : data?.body}
           </p>
