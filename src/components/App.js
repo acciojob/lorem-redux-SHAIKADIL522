@@ -15,7 +15,7 @@ const App = () => {
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
 
-      {/* ✅ Loading / Description */}
+      {/* Loading / Description */}
       {loading ? (
         <h4>Loading...</h4>
       ) : (
@@ -24,26 +24,32 @@ const App = () => {
         </h4>
       )}
 
-      {/* ✅ Error */}
+      {/* Error */}
       {error && <h4>Error: {error}</h4>}
 
-       <ul>
-  <li>
-    {loading ? "Loading id" : data?.id}
+      {/* ✅ IMPORTANT: Structured Output for Cypress */}
+      <ul>
+        <li>
+          {/* ID */}
+          <p className="id">
+            {loading ? "Loading id" : data && data.id}
+          </p>
 
-    <p className="title">
-      {loading
-        ? "Title :Loading tiltes"
-        : `Title :${data?.title}`}
-    </p>
+          {/* Title */}
+          <p className="title">
+            {loading
+              ? "Title :Loading tiltes"
+              : data && `Title :${data.title}`}
+          </p>
 
-    <p className="body">
-      {loading
-        ? "Body :Loading body"
-        : `Body :${data?.body}`}
-    </p>
-  </li>
-</ul>
+          {/* Body */}
+          <p className="body">
+            {loading
+              ? "Body :Loading body"
+              : data && `Body :${data.body}`}
+          </p>
+        </li>
+      </ul>
     </div>
   );
 };
