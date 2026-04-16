@@ -5,10 +5,7 @@ import "./../styles/App.css";
 
 const App = () => {
   const dispatch = useDispatch();
-
-  const loading = useSelector((state) => state.loading);
-  const data = useSelector((state) => state.data);
-  const error = useSelector((state) => state.error);
+  const { loading, data, error } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(fetchLorem());
@@ -16,20 +13,21 @@ const App = () => {
 
   return (
     <div>
-      {/* ✅ EXACT TEXT REQUIRED */}
-      <h1>A short Naration of Lorem Ipsum</h1>
+      {/* ✅ Intro text (MANDATORY) */}
+      <h4>A short Naration of Lorem Ipsum</h4>
 
-      {/* ✅ ALWAYS SHOW INITIALLY */}
+      {/* ✅ Loading */}
       {loading && <h4>Loading...</h4>}
 
-      {error && <p>{error}</p>}
+      {/* ✅ Error */}
+      {error && <h4>Error: {error}</h4>}
 
-      {/* ✅ REQUIRED STRUCTURE + CLASSES */}
+      {/* ✅ Data */}
       {data && (
         <ul>
           <li>
-            <p className="title">{data.title}</p>
-            <p className="body">{data.body}</p>
+            <p className="title">Title :{data.title}</p>
+            <p className="body">Body :{data.body}</p>
           </li>
         </ul>
       )}
