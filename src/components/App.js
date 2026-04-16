@@ -16,21 +16,20 @@ const App = () => {
 
   return (
     <div>
-      {/* ✅ Required heading */}
-      <h1>Lorem Redux App</h1>
+      {/* ✅ EXACT TEXT REQUIRED */}
+      <h1>A short Naration of Lorem Ipsum</h1>
 
-      {/* ✅ Required loading format */}
+      {/* ✅ ALWAYS SHOW INITIALLY */}
       {loading && <h4>Loading...</h4>}
 
-      {/* Optional error */}
       {error && <p>{error}</p>}
 
-      {/* ✅ Required structure */}
+      {/* ✅ REQUIRED STRUCTURE + CLASSES */}
       {data && (
         <ul>
           <li>
-            <p>{data.title}</p>
-            <p>{data.body}</p>
+            <p className="title">{data.title}</p>
+            <p className="body">{data.body}</p>
           </li>
         </ul>
       )}
