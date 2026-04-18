@@ -15,10 +15,10 @@ const App = () => {
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
 
-      {/* ✅ MUST SHOW FIRST */}
+      {/* ✅ Loading */}
       {loading && <h4>Loading...</h4>}
 
-      {/* ✅ ONLY AFTER LOADING */}
+      {/* ✅ After loading */}
       {!loading && (
         <h4>
           Below Contains A title and Body gotten froma random API, Please take your time to Review
@@ -29,7 +29,7 @@ const App = () => {
 
       <ul>
         <li>
-          {/* ✅ EXACT format */}
+          {/* ✅ NEVER return empty string */}
           <p className="id">
             {loading ? "Loading id" : data.id}
           </p>

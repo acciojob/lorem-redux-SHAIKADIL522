@@ -8,7 +8,6 @@ export const fetchLorem = () => (dispatch) => {
   fetch("https://jsonplaceholder.typicode.com/posts/1")
     .then((res) => res.json())
     .then((data) => {
-      // 🔥 Delay ONLY state update
       setTimeout(() => {
         dispatch({ type: FETCH_LOREM_SUCCESS, payload: data });
       }, 1500);
