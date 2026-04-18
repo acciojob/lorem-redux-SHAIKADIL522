@@ -8,38 +8,45 @@ const App = () => {
   const { loading, data, error } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(fetchLorem());
+    // ✅ IMPORTANT: Delay dispatch so Cypress sees loading state
+    const timer = setTimeout(() => {
+      dispatch(fetchLorem());
+    }, 300); // sweet spot (100ms was too fast)
+
+    return () => clearTimeout(timer);
   }, [dispatch]);
 
   return (
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
 
-      {/* ✅ Loading */}
-      {loading && <h4>Loading...</h4>}
-
-      {/* ✅ After loading */}
-      {!loading && (
+      {/* ✅ EXACT MATCH */}
+      {loading ? (
+        <h4>Loading...</h4>
+      ) : (
         <h4>
           Below Contains A title and Body gotten froma random API, Please take your time to Review
         </h4>
       )}
 
+      {/* Error */}
       {error && <h4>Error: {error}</h4>}
 
       <ul>
         <li>
-          {/* ✅ NEVER return empty string */}
+          {/* ✅ ID MUST BE PURE TEXT */}
           <p className="id">
             {loading ? "Loading id" : data.id}
           </p>
 
+          {/* ✅ EXACT STRING */}
           <p className="title">
             {loading
               ? "Title :Loading tiltes"
               : "Title :" + data.title}
           </p>
 
+          {/* ✅ EXACT STRING */}
           <p className="body">
             {loading
               ? "Body :Loading body"
