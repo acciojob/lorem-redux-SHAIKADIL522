@@ -8,19 +8,13 @@ const App = () => {
   const { loading, data, error } = useSelector((state) => state);
 
   useEffect(() => {
-    // ✅ IMPORTANT: Delay dispatch so Cypress sees loading state
-    const timer = setTimeout(() => {
-      dispatch(fetchLorem());
-    }, 300); // sweet spot (100ms was too fast)
-
-    return () => clearTimeout(timer);
+    dispatch(fetchLorem());
   }, [dispatch]);
 
   return (
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
 
-      {/* ✅ EXACT MATCH */}
       {loading ? (
         <h4>Loading...</h4>
       ) : (
@@ -29,28 +23,28 @@ const App = () => {
         </h4>
       )}
 
-      {/* Error */}
       {error && <h4>Error: {error}</h4>}
 
       <ul>
         <li>
-          {/* ✅ ID MUST BE PURE TEXT */}
           <p className="id">
-            {loading ? "Loading id" : data.id}
+            {loading ? "Loading id" : data ? data.id : ""}
           </p>
 
-          {/* ✅ EXACT STRING */}
           <p className="title">
             {loading
               ? "Title :Loading tiltes"
-              : "Title :" + data.title}
+              : data
+              ? "Title :" + data.title
+              : ""}
           </p>
 
-          {/* ✅ EXACT STRING */}
           <p className="body">
             {loading
               ? "Body :Loading body"
-              : "Body :" + data.body}
+              : data
+              ? "Body :" + data.body
+              : ""}
           </p>
         </li>
       </ul>
