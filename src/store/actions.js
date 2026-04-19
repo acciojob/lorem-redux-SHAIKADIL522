@@ -14,5 +14,5 @@ export const fetchLorem = () => (dispatch) => {
       .catch((err) => {
         dispatch({ type: FETCH_LOREM_FAILURE, payload: err.message });
       });
-  }, 2000);
+  }, 3500);
 };

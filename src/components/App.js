@@ -19,34 +19,29 @@ const App = () => {
         <h4>Loading...</h4>
       ) : (
         <h4>
-          Below Contains A title and Body gotten froma random API, Please take your time to Review
+          Below Contains A title and Body gotten froma random API, Please take
+          your time to Review
         </h4>
       )}
 
       {error && <h4>Error: {error}</h4>}
 
       <ul>
-        <li>
-          <p className="id">
-            {loading ? "Loading id" : data ? String(data.id) : ""}
-          </p>
-
-          <p className="title">
-            {loading
-              ? "Title :Loading tiltes"
-              : data
-              ? "Title :" + data.title
-              : ""}
-          </p>
-
-          <p className="body">
-            {loading
-              ? "Body :Loading body"
-              : data
-              ? "Body :" + data.body
-              : ""}
-          </p>
-        </li>
+        {loading ? (
+          <li>
+            <p className="id">Loading id</p>
+            <p className="title">Title :Loading tiltes</p>
+            <p className="body">Body :Loading body</p>
+          </li>
+        ) : (
+          data && (
+            <li>
+              <p className="id">{data.id}</p>
+              <p className="title">Title :{data.title}</p>
+              <p className="body">Body :{data.body}</p>
+            </li>
+          )
+        )}
       </ul>
     </div>
   );
