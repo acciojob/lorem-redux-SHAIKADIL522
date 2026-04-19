@@ -9,16 +9,10 @@ export const fetchLorem = () => (dispatch) => {
     fetch("https://jsonplaceholder.typicode.com/posts/1")
       .then((res) => res.json())
       .then((data) => {
-        dispatch({
-          type: FETCH_LOREM_SUCCESS,
-          payload: data,
-        });
+        dispatch({ type: FETCH_LOREM_SUCCESS, payload: data });
       })
       .catch((err) => {
-        dispatch({
-          type: FETCH_LOREM_FAILURE,
-          payload: err.message,
-        });
+        dispatch({ type: FETCH_LOREM_FAILURE, payload: err.message });
       });
-  }, 3000);
+  }, 2000);
 };

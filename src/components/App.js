@@ -28,7 +28,7 @@ const App = () => {
       <ul>
         <li>
           <p className="id">
-            {loading ? "Loading id" : data ? data.id : ""}
+            {loading ? "Loading id" : data ? String(data.id) : ""}
           </p>
 
           <p className="title">
