@@ -13,26 +13,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_LOREM_REQUEST:
-      return {
-        loading: true,
-        data: null,
-        error: "",
-      };
-
+      return { loading: true, data: null, error: "" };
     case FETCH_LOREM_SUCCESS:
-      return {
-        loading: false,
-        data: action.payload,
-        error: "",
-      };
-
+      return { loading: false, data: action.payload, error: "" };
     case FETCH_LOREM_FAILURE:
-      return {
-        loading: false,
-        data: null,
-        error: action.payload,
-      };
-
+      return { loading: false, data: null, error: action.payload };
     default:
       return state;
   }

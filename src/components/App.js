@@ -18,9 +18,7 @@ const App = () => {
       {loading ? (
         <h4>Loading...</h4>
       ) : (
-        <h4>
-          Below Contains A title and Body gotten froma random API, Please take your time to Review
-        </h4>
+        <h4>Below Contains A title and Body gotten from a random API</h4>
       )}
 
       {error && <h4>Error: {error}</h4>}

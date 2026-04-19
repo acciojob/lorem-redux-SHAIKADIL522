@@ -20,5 +20,5 @@ export const fetchLorem = () => (dispatch) => {
           payload: err.message,
         });
       });
-  }, 1000); // IMPORTANT delay for Cypress
+  }, 3000);
 };
