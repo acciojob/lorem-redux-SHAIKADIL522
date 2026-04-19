@@ -19,8 +19,7 @@ const App = () => {
         <h4>Loading...</h4>
       ) : (
         <h4>
-          Below Contains A title and Body gotten froma random API, Please take
-          your time to Review
+          Below Contains A title and Body gotten froma random API, Please take your time to Review
         </h4>
       )}
 

@@ -4,6 +4,10 @@ import { Provider } from "react-redux";
 import App from "./components/App";
 import store from "./store/store";
 
+if (window.Cypress) {
+  window.store = store;
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
